@@ -57,5 +57,20 @@ echo "<INFO> Plugin CONFIG folder is: $PCONFIG"
 echo "<INFO> Plugin SBIN folder is: $PSBIN"
 echo "<INFO> Plugin BIN folder is: $PBIN"
 
+pip install google
+pip install protobuf
+# Replace real subfolder and scriptname in config file and create subfolder.dat in CGI folder
+/bin/sed -i "s#REPLACEBYBASEFOLDER#$ARGV5#g" $LBHOMEDIR/system/cron/cron.10min/$ARGV2
+#/bin/sed -i "s#REPLACEBYBASEFOLDER#$ARGV5#g" $LBPDATA/$ARGV3/netatmo_APIBody.py
+#/bin/sed -i "s#REPLACEBYBASEFOLDER#$ARGV5#g" $LBPHTMLAUTH/$ARGV3/index.cgi
+
+/bin/sed -i "s#REPLACEBYSUBFOLDER#$ARGV3#g" $LBHOMEDIR/system/cron/cron.05min/$ARGV2
+#/bin/sed -i "s#REPLACEBYSUBFOLDER#$ARGV3#g" $LBPDATA/$ARGV3/netatmo_APIBody.py
+#/bin/sed -i "s#REPLACEBYSUBFOLDER#$ARGV3#g" $LBPHTMLAUTH/$ARGV3/index.cgi
+
+/bin/sed -i "s#REPLACEBYPLUGINNAME#$ARGV2#g" $LBHOMEDIR/system/cron/cron.05min/$ARGV2
+#/bin/sed -i "s#REPLACEBYPLUGINNAME#$ARGV2#g" $LBPDATA/$ARGV3/netatmo_APIBody.py
+#/bin/sed -i "s#REPLACEBYPLUGINNAME#$ARGV2#g" $LBPHTMLAUTH/$ARGV3/index.cgi
+
 # Exit with Status 0
 exit 0

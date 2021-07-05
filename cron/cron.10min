@@ -8,3 +8,7 @@
 # cron script will not be uninstalled cleanly.
 
 # Will be executed as user "loxberry".
+if [ -e $LBPBIN/$PDIR/checkStatus.py ]
+then
+  /usr/bin/python3 $LBPBIN/REPLACEBYSUBFOLDER/checkStatus.py --logfile=$LBPLOG/REPLACEBYSUBFOLDER/zehnderCtrl.log --configfile=$LBPCONFIG/REPLACEBYSUBFOLDER/pluginconfig.cfg
+fi
